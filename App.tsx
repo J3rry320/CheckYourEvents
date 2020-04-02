@@ -17,7 +17,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Text} from 'native-base';
 import {store} from './src/store';
-const Welcome = React.lazy(() => import('./src/containers/Welcome'));
+const LandingPage = React.lazy(() => import('./src/containers/LandingPage'));
+const EventPage = React.lazy(() => import('./src/containers/Events'));
 const Stack = createStackNavigator();
 const App: () => any = () => {
   return (
@@ -25,7 +26,8 @@ const App: () => any = () => {
       <Suspense fallback={<Text>Loading...</Text>}>
         <Provider store={store}>
           <Stack.Navigator initialRouteName="Welcome">
-            <Stack.Screen name="Welcome" component={Welcome} />
+            <Stack.Screen name="Welcome" component={LandingPage} />
+            <Stack.Screen name="Event" component={EventPage} />
           </Stack.Navigator>
         </Provider>
       </Suspense>
