@@ -39,7 +39,7 @@ export default function userReducer(state = INIT_STATE, action: any) {
       return {
         ...state,
         addUserNameLoading: false,
-        addUserName: action.paylaod,
+        addUserName: action.payload,
       };
     }
     case UserConstants.ADD_USER_FAILURE: {

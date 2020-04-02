@@ -13,6 +13,9 @@ export class CustomInput extends PureComponent<IPropsForInput> {
       <Item bordered floatingLabel>
         <Label>{label || ''}</Label>
         <Input
+          // @ts-ignore
+          error
+          underlineColorAndroid="#fff"
           style={InputStyles.inputColor}
           onChangeText={onInputChange}
           value={value}

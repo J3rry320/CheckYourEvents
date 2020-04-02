@@ -7,6 +7,9 @@ import {Dispatch} from 'redux';
 import {connect} from 'react-redux';
 import {LandingPageStyle} from '../styles/LandingPage';
 import CustomButton from '../components/CustomButton';
+import {validateString} from '../utils/validate';
+import {InputStyles} from '../styles/inputStyles';
+import {helper} from '../utils/helper';
 // import {NavigationState, NavigationS} from '@react-navigation/native';
 interface ILandingPageProps {
   user: CheckEventsTypes.IUserReducer;
@@ -17,9 +20,30 @@ interface ILandingPageProps {
 export class LandingPage extends PureComponent<ILandingPageProps> {
   state = {
     userName: '',
+    error: false,
+  };
+  componentDidMount() {
+    const {navigation} = this.props;
+    helper._retrieveData('user') && navigation.navigate('Event');
+  }
+  handleInputChange = (inputName: string) => {
+    this.setState({
+      userName: inputName,
+      error: false,
+    });
+  };
+  handleClick = () => {
+    const {userName, error} = this.state;
+    const {navigation, addUser} = this.props;
+    if (validateString(userName) && !error) {
+      addUser(userName);
+      navigation.navigate('Event');
+    } else {
+      this.setState({error: true});
+    }
   };
   render() {
-    const {userName} = this.state;
+    const {userName, error} = this.state;
     return (
       <Container style={LandingPageStyle.parent}>
         <Text style={LandingPageStyle.headerText}>
@@ -27,21 +51,12 @@ export class LandingPage extends PureComponent<ILandingPageProps> {
         </Text>
         <CustomInput
           value={userName}
-          onInputChange={inputName => {
-            this.setState({
-              userName: inputName,
-            });
-          }}
+          onInputChange={this.handleInputChange}
           label="Enter user name"
         />
+        {error && <Text style={InputStyles.errorText}>Wrog Input</Text>}
         <View style={LandingPageStyle.marginForButton}>
-          <CustomButton
-            text="Sign Up"
-            onClick={() => {
-              this.props.addUser(userName);
-              this.props.navigation.navigate('Event');
-            }}
-          />
+          <CustomButton text="Sign Up" onClick={this.handleClick} />
         </View>
       </Container>
     );

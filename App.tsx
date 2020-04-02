@@ -5,18 +5,28 @@
  * @format
  * @flow
  */
-import 'react-native-gesture-handler';
-
-import React, {Suspense} from 'react';
-import {Provider} from 'react-redux';
 // import {Colors} from 'react-native/Libraries/NewAppScreen';
 // import Layout from './src/components/Layout';
 // import {Text} from 'native-base';
-
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Text} from 'native-base';
-import {store} from './src/store';
+import React, {Suspense} from 'react';
+import 'react-native-gesture-handler';
+import {Provider} from 'react-redux';
+import {applyMiddleware, createStore} from 'redux';
+import logger from 'redux-logger';
+import createSagaMiddleWare from 'redux-saga';
+import {rootReducer} from './src/store/reducers';
+import rootSaga from './src/store/sagas';
+
+const sagaMiddleWare = createSagaMiddleWare();
+
+export const store = createStore(
+  rootReducer,
+  applyMiddleware(sagaMiddleWare, logger),
+);
+sagaMiddleWare.run(rootSaga);
 const LandingPage = React.lazy(() => import('./src/containers/LandingPage'));
 const EventPage = React.lazy(() => import('./src/containers/Events'));
 const Stack = createStackNavigator();

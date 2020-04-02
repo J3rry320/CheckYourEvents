@@ -1,13 +1,13 @@
 import * as UserConstants from '../constants/userConstants';
 export const addUser = (payload: string) => ({
   payload,
-  type: UserConstants.GET_USER,
+  type: UserConstants.ADD_USER,
 });
 export const addUserSuccess = (payload: string) => ({
   payload,
-  type: UserConstants.GET_USER_SUCCESS,
+  type: UserConstants.ADD_USER_SUCCESSFUl,
 });
 export const addUserFailure = (payload: string) => ({
   payload,
-  type: UserConstants.GET_USER_FAILURE,
+  type: UserConstants.ADD_USER_FAILURE,
 });
