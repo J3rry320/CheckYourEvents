@@ -20,13 +20,11 @@ import createSagaMiddleWare from 'redux-saga';
 import {rootReducer} from './src/store/reducers';
 import rootSaga from './src/store/sagas';
 import {helper} from './src/utils/helper';
-
+// @ts-ignore
+import {HELLO} from 'react-native-dotenv';
 const sagaMiddleWare = createSagaMiddleWare();
 
-export const store = createStore(
-  rootReducer,
-  applyMiddleware(sagaMiddleWare, logger),
-);
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleWare, logger));
 sagaMiddleWare.run(rootSaga);
 const LandingPage = React.lazy(() => import('./src/containers/LandingPage'));
 const EventPage = React.lazy(() => import('./src/containers/Events'));
@@ -41,6 +39,7 @@ class App extends React.PureComponent {
       'Here',
       this.initScreenName,
       await helper._retrieveData('userName'),
+      HELLO,
     );
   }
 
