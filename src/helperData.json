@@ -1,0 +1,82 @@
+{
+  "events": [
+    {
+      "thumbnail": "https://www.youredm.com/wp-content/uploads/2017/08/FAVOR.jpg",
+      "eventName": "Skrillex Tour Of Bengaluru",
+      "eventImages": [
+        "https://i.pinimg.com/236x/b4/f0/6b/b4f06b0005c3cea676c9d7a5da6f63c8--band-posters-music-posters.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbisdAp4j8MV4sNbOYZnAEffJuPbUj5_1-Cvt3twjaW34VJIrl&usqp=CAU",
+        "https://media.npr.org/assets/img/2012/10/29/gettyimages_153646392_wide-c6cee012a28d23e0f5acbf2ea0cf7443d3ec113c-s800-c85.jpg",
+        "https://www.onesmallseed.com/wp-content/uploads/2013/02/soundisstyle-com1.jpg"
+      ],
+      "eventData": {
+        "location": {
+          "latitude": 12.912575,
+          "longitude": 77.619448
+        },
+        "timeBegins": 18,
+        "timeEnds": 21,
+        "address": {
+          "locationName": "Nadaprabhu Kempegowda Stadium",
+          "addressLine1": ", 147, 2nd Main Road, Milk Colony, Subramanyanagar,2 State",
+          "addressLine2": "Rajaji Nagar, Bengaluru, Karnataka",
+          "nearbyLandmark": "Pride Apartments",
+          "pin": 560055
+        }
+      },
+      "tracked": false
+    },
+    {
+      "thumbnail": "https://www.youredm.com/wp-content/uploads/2017/08/FAVOR.jpg",
+      "eventName": "Skrillex Tour Of Bengaluru",
+      "eventImages": [
+        "https://i.pinimg.com/236x/b4/f0/6b/b4f06b0005c3cea676c9d7a5da6f63c8--band-posters-music-posters.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbisdAp4j8MV4sNbOYZnAEffJuPbUj5_1-Cvt3twjaW34VJIrl&usqp=CAU",
+        "https://media.npr.org/assets/img/2012/10/29/gettyimages_153646392_wide-c6cee012a28d23e0f5acbf2ea0cf7443d3ec113c-s800-c85.jpg",
+        "https://www.onesmallseed.com/wp-content/uploads/2013/02/soundisstyle-com1.jpg"
+      ],
+      "eventData": {
+        "location": {
+          "latitude": 12.912575,
+          "longitude": 77.619448
+        },
+        "timeBegins": 18,
+        "timeEnds": 21,
+        "address": {
+          "locationName": "Nadaprabhu Kempegowda Stadium",
+          "addressLine1": ", 147, 2nd Main Road, Milk Colony, Subramanyanagar,2 State",
+          "addressLine2": "Rajaji Nagar, Bengaluru, Karnataka",
+          "nearbyLandmark": "Pride Apartments",
+          "pin": 560055
+        }
+      },
+      "tracked": false
+    },
+    {
+      "thumbnail": "https://www.youredm.com/wp-content/uploads/2017/08/FAVOR.jpg",
+      "eventName": "Jerry's  Tour Of Bengaluru",
+      "eventImages": [
+        "https://i.pinimg.com/236x/b4/f0/6b/b4f06b0005c3cea676c9d7a5da6f63c8--band-posters-music-posters.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbisdAp4j8MV4sNbOYZnAEffJuPbUj5_1-Cvt3twjaW34VJIrl&usqp=CAU",
+        "https://media.npr.org/assets/img/2012/10/29/gettyimages_153646392_wide-c6cee012a28d23e0f5acbf2ea0cf7443d3ec113c-s800-c85.jpg",
+        "https://www.onesmallseed.com/wp-content/uploads/2013/02/soundisstyle-com1.jpg"
+      ],
+      "eventData": {
+        "location": {
+          "latitude": 12.912575,
+          "longitude": 77.619448
+        },
+        "timeBegins": 18,
+        "timeEnds": 21,
+        "address": {
+          "locationName": "Nadaprabhu Kempegowda Stadium",
+          "addressLine1": ", 147, 2nd Main Road, Milk Colony, Subramanyanagar,2 State",
+          "addressLine2": "Rajaji Nagar, Bengaluru, Karnataka",
+          "nearbyLandmark": "Pride Apartments",
+          "pin": 560055
+        }
+      },
+      "tracked": false
+    }
+  ]
+}

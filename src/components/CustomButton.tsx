@@ -10,7 +10,7 @@ export class CustomButton extends PureComponent<IButtonProps> {
   render() {
     const {text, onClick} = this.props;
     return (
-      <Button light rounded onPress={onClick}>
+      <Button primary rounded onPress={onClick}>
         <Text style={ButtonStyles.text}>{text}</Text>
       </Button>
     );

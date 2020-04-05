@@ -7,9 +7,10 @@ import {Dispatch} from 'redux';
 import {connect} from 'react-redux';
 import {LandingPageStyle} from '../styles/LandingPage';
 import CustomButton from '../components/CustomButton';
-import {validateString} from '../utils/validate';
+import {validateUserName} from '../utils/validate';
 import {InputStyles} from '../styles/inputStyles';
 import {helper} from '../utils/helper';
+// import {helper} from '../utils/helper';
 // import {NavigationState, NavigationS} from '@react-navigation/native';
 interface ILandingPageProps {
   user: CheckEventsTypes.IUserReducer;
@@ -22,9 +23,9 @@ export class LandingPage extends PureComponent<ILandingPageProps> {
     userName: '',
     error: false,
   };
-  componentDidMount() {
+  async componentDidMount() {
     const {navigation} = this.props;
-    helper._retrieveData('user') && navigation.navigate('Event');
+    (await helper._retrieveData('userName')) && navigation.navigate('Event');
   }
   handleInputChange = (inputName: string) => {
     this.setState({
@@ -35,7 +36,7 @@ export class LandingPage extends PureComponent<ILandingPageProps> {
   handleClick = () => {
     const {userName, error} = this.state;
     const {navigation, addUser} = this.props;
-    if (validateString(userName) && !error) {
+    if (validateUserName(userName.trim()) && !error) {
       addUser(userName);
       navigation.navigate('Event');
     } else {
@@ -60,6 +61,11 @@ export class LandingPage extends PureComponent<ILandingPageProps> {
         </View>
       </Container>
     );
+  }
+  componentWillUnmount() {
+    this.setState({
+      userName: '',
+    });
   }
 }
 function mapStateToProps(state: CheckEventsTypes.IRootReducer) {
