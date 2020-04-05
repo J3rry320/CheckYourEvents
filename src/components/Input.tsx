@@ -1,14 +1,16 @@
-import {Input, Item, Label} from 'native-base';
+import {Input, Item, Label, Icon} from 'native-base';
 import React, {PureComponent} from 'react';
 import {InputStyles} from '../styles/inputStyles';
 interface IPropsForInput {
   value: string;
   onInputChange: (userName: string) => void;
   label?: string;
+  icon?: boolean;
+  iconName?: string;
 }
 export class CustomInput extends PureComponent<IPropsForInput> {
   render() {
-    const {value, onInputChange, label} = this.props;
+    const {value, onInputChange, label, icon, iconName} = this.props;
     return (
       <Item bordered floatingLabel>
         <Label>{label || ''}</Label>
@@ -20,6 +22,7 @@ export class CustomInput extends PureComponent<IPropsForInput> {
           onChangeText={onInputChange}
           value={value}
         />
+        {icon && <Icon active name={iconName} />}
       </Item>
     );
   }

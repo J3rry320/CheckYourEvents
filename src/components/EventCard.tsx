@@ -1,22 +1,19 @@
 /* eslint-disable prettier/prettier */
-import { Button, Card, CardItem, Icon, Left, Right, Text } from 'native-base';
-import React, { PureComponent } from 'react';
-import { Image } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import {Button, Card, CardItem, Icon, Left, Right, Text} from 'native-base';
+import React, {PureComponent} from 'react';
+import {Image} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 
 interface IEventCardProps {
   eventData: CheckEventsTypes.EventType[];
 }
 
 export class EventCard extends PureComponent<IEventCardProps> {
-  componentDidMount() {
-    console.log('Yay For Android 1');
-  }
   renderCard = (data: CheckEventsTypes.EventType) => (
     <Card style={{marginHorizontal: 30}}>
       <CardItem>
         <ScrollView bounces alwaysBounceHorizontal horizontal>
-          {data.eventImages?.map(ele => (
+          {data.eventImages?.map((ele) => (
             <Image
               source={{
                 uri: ele,
@@ -52,7 +49,7 @@ export class EventCard extends PureComponent<IEventCardProps> {
       //   <Text>Hey</Text>
 
       <ScrollView>
-        {eventData.map(data => {
+        {eventData.map((data) => {
           return this.renderCard(data);
         })}
       </ScrollView>

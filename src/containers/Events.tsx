@@ -1,9 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {View, Text} from 'native-base';
 import React, {PureComponent} from 'react';
 import CustomButton from '../components/CustomButton';
 import {EventCard} from '../components/EventCard';
 import {helper} from '../utils/helper';
 import * as EventHelperData from '../helperData.json';
+import {connect} from 'react-redux';
+import withGestureHandler from '../components/GestureRecogniser';
+var flow = require('lodash.flow');
 interface IEventPageProps {
   navigation: any;
 }
@@ -13,9 +17,9 @@ export class Events extends PureComponent<IEventPageProps> {
   }
   render() {
     const {navigation} = this.props;
+
     return (
       <View>
-        <Text>Hey MotherFucker</Text>
         <EventCard eventData={EventHelperData.events} />
         <CustomButton
           text="Log Out"
@@ -28,5 +32,12 @@ export class Events extends PureComponent<IEventPageProps> {
     );
   }
 }
+function mapStateToProps(state: CheckEventsTypes.IRootReducer) {
+  return {
+    events: state.user,
+  };
+}
 
-export default Events;
+export default flow([connect(mapStateToProps, null), withGestureHandler])(
+  Events,
+);
