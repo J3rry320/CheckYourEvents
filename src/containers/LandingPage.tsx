@@ -1,15 +1,14 @@
 /* eslint-disable prettier/prettier */
-import {Container, Text, View} from 'native-base';
-import React, {PureComponent} from 'react';
-import CustomInput from '../components/Input';
-import {addUser} from '../store/actions/userActions';
-import {Dispatch} from 'redux';
-import {connect} from 'react-redux';
-import {LandingPageStyle} from '../styles/LandingPage';
+import { Container, Text, View } from 'native-base';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import CustomButton from '../components/CustomButton';
-import {validateUserName} from '../utils/validate';
-import {InputStyles} from '../styles/inputStyles';
-import {helper} from '../utils/helper';
+import CustomInput from '../components/Input';
+import { addUser } from '../store/actions/userActions';
+import { InputStyles } from '../styles/inputStyles';
+import { LandingPageStyle } from '../styles/LandingPage';
+import { validateUserName } from '../utils/validate';
 // import {helper} from '../utils/helper';
 // import {NavigationState, NavigationS} from '@react-navigation/native';
 interface ILandingPageProps {
@@ -23,10 +22,7 @@ export class LandingPage extends PureComponent<ILandingPageProps> {
     userName: '',
     error: false,
   };
-  async componentDidMount() {
-    const {navigation} = this.props;
-    (await helper._retrieveData('userName')) && navigation.navigate('Event');
-  }
+
   handleInputChange = (inputName: string) => {
     this.setState({
       userName: inputName,

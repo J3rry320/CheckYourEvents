@@ -7,6 +7,7 @@ import {helper} from '../utils/helper';
 import * as EventHelperData from '../helperData.json';
 import {connect} from 'react-redux';
 import withGestureHandler from '../components/GestureRecogniser';
+import {ScrollView} from 'react-native-gesture-handler';
 var flow = require('lodash.flow');
 interface IEventPageProps {
   navigation: any;
@@ -20,7 +21,7 @@ export class Events extends PureComponent<IEventPageProps> {
     const {navigation} = this.props;
     console.warn('Events', this.props);
     return (
-      <View>
+      <ScrollView>
         <EventCard eventData={EventHelperData.events} />
         <CustomButton
           text="Log Out"
@@ -29,7 +30,7 @@ export class Events extends PureComponent<IEventPageProps> {
               navigation.navigate('LandingPage');
           }}
         />
-      </View>
+      </ScrollView>
     );
   }
 }

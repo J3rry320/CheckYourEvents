@@ -29,14 +29,12 @@ sagaMiddleWare.run(rootSaga);
 const LandingPage = React.lazy(() => import('./src/containers/LandingPage'));
 const EventPage = React.lazy(() => import('./src/containers/Events'));
 const Tracker = React.lazy(() => import('./src/containers/Tracker'));
-console.log('Here Tracker', Tracker);
+const Welcome = React.lazy(() => import('./src/containers/Welcome'));
+
 const Stack = createStackNavigator();
 class App extends React.PureComponent {
-  private initScreenName = '';
+  private initScreenName = 'Welcome';
   async componentDidMount() {
-    this.initScreenName = !(await helper._retrieveData('userName'))
-      ? 'LandingPage'
-      : 'Event';
     console.log(
       'Here',
       this.initScreenName,
@@ -47,13 +45,14 @@ class App extends React.PureComponent {
 
   render() {
     console.disableYellowBox = true;
-    console.log('In Render', this.initScreenName);
+
     return (
       <NavigationContainer>
         <Suspense fallback={<Text>Loading...</Text>}>
           <Provider store={store}>
             <Stack.Navigator initialRouteName={this.initScreenName}>
               <Stack.Screen name="LandingPage" component={LandingPage} />
+              <Stack.Screen name="Welcome" component={Welcome} />
               <Stack.Screen
                 options={{headerShown: true, headerBackTitleVisible: false}}
                 name="Event"

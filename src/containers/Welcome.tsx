@@ -1,12 +1,26 @@
+import {View} from 'native-base';
 import React, {Component} from 'react';
-
 import {connect} from 'react-redux';
-import {Text} from 'native-base';
-// import {Dispatch} from 'redux';
+import Loader from '../components/Loader';
+import {helper} from '../utils/helper';
 
-export class Welcome extends Component {
+// import {Dispatch} from 'redux';
+interface IWelcomeProps {
+  navigation: any;
+}
+export class Welcome extends Component<IWelcomeProps> {
+  async componentDidMount() {
+    const {navigation} = this.props;
+    (await helper._retrieveData('userName'))
+      ? navigation.navigate('Event')
+      : navigation.navigate('LandingPage');
+  }
   render() {
-    return <Text>Welcome UserName Goes Here </Text>;
+    return (
+      <View>
+        <Loader text="Give us a moment" color="red" />
+      </View>
+    );
   }
 }
 

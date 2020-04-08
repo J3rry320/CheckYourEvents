@@ -1,13 +1,15 @@
+import {Spinner, View, Text} from 'native-base';
 import React, {PureComponent} from 'react';
-import {Spinner, Container} from 'native-base';
+import {loaderStyles} from '../styles/loaderStyles';
 
-export class Loader extends PureComponent<{color: string}> {
+export class Loader extends PureComponent<{color: string; text: string}> {
   render() {
-    const {color} = this.props;
+    const {color, text} = this.props;
     return (
-      <Container>
+      <View style={loaderStyles.parent}>
         <Spinner color={color} />
-      </Container>
+        <Text style={loaderStyles.text}>{text}</Text>
+      </View>
     );
   }
 }
