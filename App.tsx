@@ -28,6 +28,8 @@ const store = createStore(rootReducer, applyMiddleware(sagaMiddleWare, logger));
 sagaMiddleWare.run(rootSaga);
 const LandingPage = React.lazy(() => import('./src/containers/LandingPage'));
 const EventPage = React.lazy(() => import('./src/containers/Events'));
+const Tracker = React.lazy(() => import('./src/containers/Tracker'));
+console.log('Here Tracker', Tracker);
 const Stack = createStackNavigator();
 class App extends React.PureComponent {
   private initScreenName = '';
@@ -52,7 +54,16 @@ class App extends React.PureComponent {
           <Provider store={store}>
             <Stack.Navigator initialRouteName={this.initScreenName}>
               <Stack.Screen name="LandingPage" component={LandingPage} />
-              <Stack.Screen name="Event" component={EventPage} />
+              <Stack.Screen
+                options={{headerShown: true, headerBackTitleVisible: false}}
+                name="Event"
+                component={EventPage}
+              />
+              <Stack.Screen
+                options={{headerShown: true, headerBackTitleVisible: false}}
+                name="Tracker"
+                component={Tracker}
+              />
             </Stack.Navigator>
           </Provider>
         </Suspense>

@@ -1,24 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import GestureRecognizer from 'react-native-swipe-gestures';
 export default function withGestureHandler(WrappedComponent: any) {
-  return class extends React.Component {
-    componentDidUpdate(prevProps: any) {
-      console.log('Current props: ', this.props);
-      console.log('Previous props: ', prevProps);
-    }
+  return class extends React.PureComponent {
     onSwipeLeft(gestureState: any) {
-      this.setState({myText: 'You swiped left!'});
-      console.log('Fuck Me right');
+      //@ts-ignore
+      this.props.navigation.navigate('Tracker');
     }
 
     onSwipeRight(gestureState: any) {
-      console.log('Fuck Me right');
+      //@ts-ignore
+      this.props.navigation.navigate('Event');
     }
 
     render() {
       const config = {
-        velocityThreshold: 0.3,
-        directionalOffsetThreshold: 80,
+        velocityThreshold: 0.1,
+        directionalOffsetThreshold: 100,
       };
       // Wraps the input component in a container, without mutating it. Good!
       return (

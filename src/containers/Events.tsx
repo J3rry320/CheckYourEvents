@@ -15,9 +15,10 @@ export class Events extends PureComponent<IEventPageProps> {
   componentDidMount() {
     console.log(helper._retrieveData('userName'));
   }
+
   render() {
     const {navigation} = this.props;
-
+    console.warn('Events', this.props);
     return (
       <View>
         <EventCard eventData={EventHelperData.events} />
