@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import EventCard from '../components/EventCard';
 import * as EventHelperData from '../helperData.json';
 const flow = require('lodash.flow');
+// TODO Make a better design
 export class Tracker extends PureComponent {
   componentDidMount() {}
 

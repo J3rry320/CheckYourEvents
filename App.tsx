@@ -22,6 +22,7 @@ import rootSaga from './src/store/sagas';
 import {helper} from './src/utils/helper';
 // @ts-ignore
 import {HELLO} from 'react-native-dotenv';
+import {StatusBar} from 'react-native';
 const sagaMiddleWare = createSagaMiddleWare();
 
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleWare, logger));
@@ -48,6 +49,7 @@ class App extends React.PureComponent {
 
     return (
       <NavigationContainer>
+        <StatusBar backgroundColor="red" />
         <Suspense fallback={<Text>Loading...</Text>}>
           <Provider store={store}>
             <Stack.Navigator initialRouteName={this.initScreenName}>

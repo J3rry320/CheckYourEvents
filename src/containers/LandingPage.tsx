@@ -1,14 +1,14 @@
 /* eslint-disable prettier/prettier */
-import { Container, Text, View } from 'native-base';
-import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import {Container, Text, View} from 'native-base';
+import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
+import {Dispatch} from 'redux';
 import CustomButton from '../components/CustomButton';
 import CustomInput from '../components/Input';
-import { addUser } from '../store/actions/userActions';
-import { InputStyles } from '../styles/inputStyles';
-import { LandingPageStyle } from '../styles/LandingPage';
-import { validateUserName } from '../utils/validate';
+import {addUser} from '../store/actions/userActions';
+import {InputStyles} from '../styles/inputStyles';
+import {LandingPageStyle} from '../styles/LandingPage';
+import {validateUserName} from '../utils/validate';
 // import {helper} from '../utils/helper';
 // import {NavigationState, NavigationS} from '@react-navigation/native';
 interface ILandingPageProps {
@@ -16,6 +16,7 @@ interface ILandingPageProps {
   addUser: (userName: string) => void;
   navigation: any;
 }
+// TODO Validation and checking and improving the ux. Also no same name users
 // Write the logic for dispatching an action which updates the store.
 export class LandingPage extends PureComponent<ILandingPageProps> {
   state = {

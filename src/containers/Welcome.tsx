@@ -8,6 +8,7 @@ import {helper} from '../utils/helper';
 interface IWelcomeProps {
   navigation: any;
 }
+// TODO Access the store
 export class Welcome extends Component<IWelcomeProps> {
   async componentDidMount() {
     const {navigation} = this.props;

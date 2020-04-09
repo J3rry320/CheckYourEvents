@@ -1,11 +1,11 @@
 import * as UserConstants from '../constants/userConstants';
 const INIT_STATE: CheckEventsTypes.IUserReducer = {
-  userName: null,
-  userNameLoading: null,
-  userNameError: null,
-  addUserName: null,
-  addUserNameLoading: null,
-  addUserNameError: null,
+  userName: undefined,
+  userNameLoading: undefined,
+  userNameError: undefined,
+  addUserName: undefined,
+  addUserNameLoading: undefined,
+  addUserNameError: undefined,
 };
 export default function userReducer(state = INIT_STATE, action: any) {
   switch (action.type) {

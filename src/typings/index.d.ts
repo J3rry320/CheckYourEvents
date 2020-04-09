@@ -1,7 +1,13 @@
 declare module CheckEventsTypes {
-  type Maybe<T> = T | undefined;
+  export type Maybe<T> = T | undefined;
   export interface IRootReducer {
     user: IUserReducer;
+    event: IEventReducer;
+  }
+  export interface IEventReducer {
+    events: Maybe<Events[]>;
+    eventsLoading: Maybe<boolean>;
+    eventsLoadingError: Maybe<Error>;
   }
   export interface IUserReducer {
     userName: Maybe<string>;
@@ -18,7 +24,7 @@ declare module CheckEventsTypes {
     nearbyLandmark: string;
     pin: number;
   };
-  type EventDetails = {
+  type EventLocationData = {
     location: {
       latitude: number;
       longitude: number;
@@ -27,11 +33,40 @@ declare module CheckEventsTypes {
     timeEnds: number;
     address: Address;
   };
-  export type EventType = {
+  type ArtistWork = {
+    name: string;
+    featuring: Artist[];
+    socialLinks: string[];
+  };
+  type Artist = {
+    name: string;
+    images: string[];
+    majorWork: ArtistWork[];
+  };
+  type Pricing = {
+    nearStage: number;
+    behindTheInitRows: number;
+    secondLastRow?: number;
+    lastRows?: number;
+  };
+  type Ticket = {
+    totalTickets: number;
+    soldOut: number;
+    left: number;
+  };
+  type EventData = {
+    details: string;
+    artists: Artist[];
+    pricing: Pricing;
+    ticket: Ticket;
+  };
+  export type Events = {
+    eventId: string;
     thumbnail: Maybe<string>;
     eventName: Maybe<string>;
     eventImages: Maybe<string[]>;
-    eventData: Maybe<EventDetails>;
+    eventLocationData: Maybe<EventLocationData>;
     tracked: boolean;
+    eventData: EventData;
   };
 }

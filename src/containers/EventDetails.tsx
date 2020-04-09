@@ -1,9 +1,9 @@
 import React, {PureComponent} from 'react';
 
-export class CustomCardSmall extends PureComponent {
+export class EventDetails extends PureComponent {
   render() {
     return <div></div>;
   }
 }
 
-export default CustomCardSmall;
+export default EventDetails;

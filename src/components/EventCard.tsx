@@ -5,11 +5,11 @@ import {Image} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 
 interface IEventCardProps {
-  eventData: CheckEventsTypes.EventType[];
+  eventData: CheckEventsTypes.Maybe<CheckEventsTypes.Events[]>;
 }
 
 export class EventCard extends PureComponent<IEventCardProps> {
-  renderCard = (data: CheckEventsTypes.EventType) => (
+  renderCard = (data: CheckEventsTypes.Events) => (
     <Card style={{marginHorizontal: 30}}>
       <CardItem>
         <ScrollView bounces alwaysBounceHorizontal horizontal>
@@ -30,8 +30,8 @@ export class EventCard extends PureComponent<IEventCardProps> {
       </CardItem>
       <CardItem>
         <Left>
-          <Text>{data.eventData?.address.locationName}</Text>
-          <Text>{`${data.eventData?.timeBegins} - ${data.eventData?.timeEnds}`}</Text>
+          <Text>{data.eventLocationData?.address.locationName}</Text>
+          <Text>{`${data.eventLocationData?.timeBegins} - ${data.eventLocationData?.timeEnds}`}</Text>
         </Left>
         <Right>
           <Button>
@@ -43,13 +43,13 @@ export class EventCard extends PureComponent<IEventCardProps> {
   );
 
   render() {
-    console.log('I am called');
     const {eventData} = this.props;
+
     return (
       //   <Text>Hey</Text>
 
       <ScrollView>
-        {eventData.map((data) => {
+        {eventData?.map((data) => {
           return this.renderCard(data);
         })}
       </ScrollView>
